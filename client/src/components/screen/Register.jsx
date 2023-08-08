@@ -35,8 +35,8 @@ function Register() {
             })
         });
         console.log("res upper done")
-        const data = await res.json();
-        console.log("res lower done")
+        const data = await res.json();      //this is not running dono why!
+        console.log("res lower done") 
 
         if(res.status === 422 || !data){
             window.alert("Invalid Registration");
@@ -65,7 +65,7 @@ function Register() {
                             </div>
                             <div className="Registeremail">
                                 <label htmlFor="">Email:</label><br />
-                                <input type="text" name="email" id="name" autoComplete='off' value={user.email} onChange={handleInputs} placeholder='CodoFile@gmail.com' /><br />
+                                <input type="text" name="email" id="email" autoComplete='off' value={user.email} onChange={handleInputs} placeholder='CodoFile@gmail.com' /><br />
                             </div>
                         </div>
                         <div className="gol">
@@ -81,11 +81,11 @@ function Register() {
                         <div className="gol">
                             <div className="Registerpassword">
                                 <label htmlFor="">Password:</label><br />
-                                <input type="password" name="password" id="name" autoComplete='off' value={user.password} onChange={handleInputs} placeholder='123456' /><br />
+                                <input type="password" name="password" id="pass" autoComplete='off' value={user.password} onChange={handleInputs} placeholder='123456' /><br />
                             </div>
                             <div className="Registercpassword">
                                 <label htmlFor="">Confirm Password:</label><br />
-                                <input type="password" name="cpassword" id="name" autoComplete='off' value={user.cpassword} onChange={handleInputs} placeholder='123456' /><br />
+                                <input type="password" name="cpassword" id="cpass" autoComplete='off' value={user.cpassword} onChange={handleInputs} placeholder='123456' /><br />
                             </div><br />
                         </div>
                         </div>
