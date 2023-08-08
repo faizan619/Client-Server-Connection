@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li:hover{
+    transition: all ease-in-out .5s;
+    color: brown;
+    border-bottom-color: var(--quaternaryColor);
+}
+li a{
+    font-size: 1rem;
+    font-weight: normal;
+}
+li{
+    list-style: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+mark{
+    padding: 0 1rem;
+    border-radius: .5rem;
+}
+a{
+    color: var(--quaternaryColor);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: alias;
+}
+.btn:hover{
+    background-color: lightgray;
+    transition: all ease-in-out .5s;
+}
+.btn{
+    padding: .3rem .7rem;
+    border-radius: .3rem;
+    margin-right: 1rem;
+    font-weight: bold;
+    color: var(--secondaryColor);
+    border-color: var(--quaternaryColor);
+    
+}
+ul{
+    width: 40%;
+}
+:root{
+    --white:#f3f3f3;
+    --secondaryColor:rgb(32, 26, 26);
+    --quaternaryColor:#f1c40f ;
+}
+
+.gol{
+    padding: 1rem;
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*=================================================
+
+navbar design
+
+==================================================*/
+
+nav{
+    background-color: var(--secondaryColor);
+    color: var(--quaternaryColor);
+    padding: .5rem;
+}
+
+.navbarContainer,ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/*=================================================
+
+Home Page design
+
+==================================================*/
+.Container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: var(--white);
+    align-items: center;
+    font-size: 1.7rem;
+    background: url('/neom-seX13AzLqls-unsplash.jpg') center/cover no-repeat;
+    height: 100vh;
+}
+
+
+/*=================================================
+
+About Page design
+
+==================================================*/
+
+
+.infoContainer{
+    background-color: var(--white);
+    height: 30rem;
+    width: 80%;
+    border-radius: 10px;
+    color: var(--secondaryColor);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.leftContainer img{
+    height: 10rem;
+}
+.leftinfodetails p{
+    font-size: .9rem;
+}
+.leftinfodetails{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    padding: 0 .5rem;
+}
+
+.infoupper{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.infiname p{
+    font-size: 1rem;
+}
+.infiname{
+    flex: 1;
+    text-align: left;
+}
+.btninfo{
+    background-color: brown;
+    color: white;
+    padding: .3rem;
+    border-radius: .5rem;
+}
+.btndiv{
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+.infofulldetails{
+    margin-top: 1rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.aainfodetails{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+
+
+/*=================================================
+
+Contact Page design
+
+==================================================*/
+
+.infobox{
+    border: 1px solid white;
+    box-shadow: 1px 1px 10px white;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+.contactupper{
+    display: flex;
+    gap:1rem;
+    font-size: 1.3rem;
+}
+.contactContainer{
+    flex-direction: column;
+    border: 1px solid white;
+}
+#text{
+    width: 97%;
+    border-radius: .3rem;
+    padding: 0 .5rem;
+    height: 15rem;
+}
+.contacttextarea input{
+    width: 30%;
+    margin-bottom: 1rem;
+    height: 2rem;
+    padding: .5rem;
+    border-radius: .3rem;
+}
+.contacttextarea h2{
+    margin-bottom: 1rem;
+}
+.contacttextarea{
+    box-shadow: 1px 1px 10px white;
+    padding: .5rem;
+    border-radius: 2rem;
+}
+.conntactbottom{
+    width: 80%;
+    height: 60%;
+    margin-top: 2rem;
+}
+.btn2{
+    padding: .3rem .7rem;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
