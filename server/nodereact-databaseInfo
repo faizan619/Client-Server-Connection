@@ -1,0 +1,9 @@
+username - faizan_alam
+password - Ej9c198neEP3PCD1
+database name - nodereact
+collection - users
+cluster name - node_react
+
+mongodb+srv://faizan_alam:<password>@nodereact.zl7x0id.mongodb.net/?retryWrites=true&w=majority
+
+mongodb+srv://faizan_alam:Ej9c198neEP3PCD1@nodereact.zl7x0id.mongodb.net/?retryWrites=true&w=majority

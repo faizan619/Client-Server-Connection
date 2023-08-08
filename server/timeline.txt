@@ -1,0 +1,390 @@
+########################### 3rd Video : ###########################
+/*
+    > npm init -y
+    > npm install express
+    > mkdir server 
+    > cd server
+    > touch app.js
+
+    ## [ app.js] ##
+
+    const express = require("express")
+    const app = express();
+
+    app.get('/',(req,res)=>{
+        res.send('Hello World! to Home Page')
+    })
+    app.get('/about',(req,res)=>{
+        res.send('Hello World! to About Page')
+    })
+    app.get('/contact',(req,res)=>{
+        res.send('Hello World! to Contact Page')
+    })
+    app.get('*',(req,res)=>{
+        res.send(`No Page Available of URL : -<h1> ${req.url}</h1>`)
+    })
+
+    app.listen(4500,()=>{
+        console.log("Listening at port :4500")
+    })
+*/
+
+########################### 4th Video :  ###########################
+
+/*
+    > npm run start
+
+
+    ## [aap.js] ##
+
+    const express = require("express")
+    const app = express();
+
+    //middleware
+
+    const middleware = (req,res,next)=>{
+        console.log("Hello this is my middleware");
+        next();
+    }
+    // middleware();
+    
+    app.get('/',(req,res)=>{
+        res.send('Hello World! to Home Page')
+        console.log(`user is at page ${req.url}`)
+    })
+    app.get('/about',middleware,(req,res)=>{
+        res.send('Hello World! to About Page');
+        console.log(`user is at page ${req.url}`)
+    })
+    app.get('/contact',(req,res)=>{
+        res.send('Hello World! to Contact Page')
+        console.log(`user is at page ${req.url}`)
+    }) 
+    app.get('*',(req,res)=>{
+        res.send(`No Page Available of URL : -<h1> ${req.url}</h1>`)
+    })
+
+    app.listen(4500,()=>{
+        console.log("Listening at port :5400")
+    })
+*/
+
+########################### 5th Video : ###########################
+/*
+    mongodb atlas setup...
+    //get database data :
+        username - faizan_alam
+        password - Ej9c198neEP3PCD1
+        database name - nodereact
+        collection - users
+        mongodb+srv://faizan_alam:<password>@nodereact.zl7x0id.mongodb.net/?retryWrites=true&w=majority
+    > npm i mongoose
+
+    #### app.js ####
+    const mongoose = require('mongoose');
+    const express = require("express")
+    const app = express();
+
+    const DB = "mongodb+srv://faizan_alam:Ej9c198neEP3PCD1@nodereact.zl7x0id.mongodb.net/nodereact?retryWrites=true&w=majority"
+
+    mongoose.connect(DB,{
+        useNewUrlParser:true,
+        // useCreateIndex:true,
+        // useUnifiedTopology: true,
+        // useFindAndModify:false,
+    }).then(()=>{
+        console.log("Connection Successful");
+    }).catch((err)=>{
+        console.log("There is an Error");
+    })
+
+
+    //middleware
+
+    const middleware = (req,res,next)=>{
+        console.log("Hello this is my middleware");
+        next();
+    }
+    // middleware();
+    
+    app.get('/',(req,res)=>{
+        res.send('Hello World! to Home Page')
+        console.log(`user is at page ${req.url}`)
+    })
+    app.get('/about',middleware,(req,res)=>{
+        res.send('Hello World! to About Page');
+        console.log(`user is at page ${req.url}`)
+        // next();
+    })
+    app.get('/contact',(req,res)=>{
+        res.send('Hello World! to Contact Page')
+        console.log(`user is at page ${req.url}`)
+    }) 
+    app.get('*',(req,res)=>{
+        res.send(`No Page Available of URL : -<h1> ${req.url}</h1>`)
+    })
+
+    app.listen(4500,()=>{
+        console.log("Listening at port :5400")
+    })
+*/
+
+########################### 6th Video : ###########################
+/*
+    > npm install dotenv
+
+    ### app.js ###
+    const dotenv = require('dotenv');
+    const mongoose = require('mongoose');
+    const express = require("express")
+    const app = express();
+    const PORT = process.env.PORT || 5400;
+
+
+    dotenv.config({path:'./config.env'});
+    // always keep the dotenv.config ubove the require 
+    require('./db/conn.js')
+
+    // const DB = "mongodb+srv://faizan_alam:Ej9c198neEP3PCD1@nodereact.zl7x0id.mongodb.net/nodereact?retryWrites=true&w=majority"
+
+
+
+    //create a new folder conn.js for mongoose.connect
+
+    // const DB = process.env.DATABASE;
+    // mongoose.connect(DB,{
+    //     useNewUrlParser:true,
+    //     // useCreateIndex:true,
+    //     // useUnifiedTopology: true,
+    //     // useFindAndModify:false,
+    // }).then(()=>{
+    //     console.log("Connection Successful");
+    // }).catch((err)=>{
+    //     console.log("There is an Error");
+    // })
+
+
+    //middleware
+
+    const middleware = (req,res,next)=>{
+        console.log("Hello this is my middleware");
+        next();
+    }
+    // middleware();
+    
+    app.get('/',(req,res)=>{
+        res.send('Hello World! to Home Page')
+        console.log(`user is at page ${req.url}`)
+    })
+    app.get('/about',middleware,(req,res)=>{
+        res.send('Hello World! to About Page');
+        console.log(`user is at page ${req.url}`)
+        // next();
+    })
+    app.get('/contact',(req,res)=>{
+        res.send('Hello World! to Contact Page')
+        console.log(`user is at page ${req.url}`)
+    }) 
+    app.get('*',(req,res)=>{
+        res.send(`No Page Available of URL : -<h1> ${req.url}</h1>`)
+    })
+
+    app.listen(PORT,()=>{
+        console.log(`browser : localhost:${PORT}`)
+    })
+
+
+    ##### create new file --> ./db/conn.js to store the mongoose.connect 
+
+    const mongoose = require('mongoose');
+
+
+    const DB = process.env.DATABASE;
+
+    mongoose.connect(DB,{
+        useNewUrlParser:true,
+        // useCreateIndex:true,
+        // useUnifiedTopology: true,
+        // useFindAndModify:false,
+    }).then(()=>{
+        console.log("Connection Successful");
+    }).catch((err)=>{
+        console.log("There is an Error");
+    })
+
+
+    ####### create new file --> ./config.env to store the credenial values and keep the config.env file inside .gitignore file 
+
+    PORT=5000
+    DATABASE=mongodb+srv://faizan_alam:Ej9c198neEP3PCD1@nodereact.zl7x0id.mongodb.net/nodereact?retryWrites=true&w=majority
+*/
+
+########################### 7th Video : ###########################
+/*
+    # created a userSchema ...
+    > mkdir model
+    > cd ./model
+    > type null > userSchema.js
+
+    ### userSchema.js ###
+    const mongoose = require('mongoose');
+
+    const userSchema = new mongoose.Schema({
+        name:{
+            type:String,
+            required:true,
+        },
+        email:{
+            type:String,
+            required:true,
+        },
+        phone:{
+            type:Number,
+            required:true,
+        },
+        work:{
+            type:String,
+            required:true,
+        },
+        password:{
+            type:String,
+            required:true,
+        },
+        cpassword:{
+            type:String,
+            required:true,
+        },
+    })
+
+    const User = mongoose.model("User",userSchema);
+
+    module.exports = User;
+*/
+
+########################### 8th Video : ###########################
+/*
+    # created a Auth File ...
+    > mkdir router
+    > cd ./router
+    > type null > auth.js
+
+    ### auth.js ###
+    const express = require("express");
+    const router = express.Router();
+
+    //the below code is show rather than default bcoz we declare this file first.. in app.js
+
+    router.get('/',(req,res)=>{
+        res.send("Hello world from auth file .Welcome to Home Page")
+    })
+
+    router.post('/register',(req,res)=>{
+        console.log(req.body);
+    });
+
+    module.exports = router;
+
+
+    ### app.js--little changes ###
+
+    // always keep the dotenv.config ubove the require 
+    require('./db/conn.js')
+    // const User = require('./model/userSchema');
+
+    app.use(express.json());
+
+    // we link the router file to make the routes easy
+    app.use(require('./router/auth'));
+
+    const middleware = (req,res,next)=>{
+        console.log("Hello this is my middleware");
+        next();
+    }
+*/
+
+########################### 9th Video : ###########################
+
+
+########################### 10th Video : ###########################
+not seen the video
+
+########################### 11th Video : ###########################
+## How to find error and how to debug...
+
+########################### 12th Video : ###########################
+/*
+    # created signin backend page in auth.js.
+    //login routes
+    router.post('/signin',async(req,res)=>{
+        // let {email , password}= req.body ;
+        // console.log("The email is : ",email);
+        // console.log("The password is : ",password);
+        // res.json({message:"Amazing"})
+        try{
+            let {email , password}= req.body ;
+
+            if(!email || !password){
+                return res.status(400).json({error:"Please fill the data"})
+            }
+            const userLogin = await User.findOne({email:email});
+            console.log(userLogin);
+            if(!userLogin){
+                res.json({error:"No such id available"})
+            }
+            res.send("Hurray ! Successfully Login")
+            
+        }catch(err){
+            console.log(`There is error faizan :${err}`)
+        }
+    })
+*/
+
+
+########################### 13th Video : ###########################
+/*
+    > hash the given password in schema file
+
+    userSchema.pre('save', async function(next){
+        console.log("hello from inside");
+        if(this.isModified('password')){
+            this.password =await bcrypt.hash(this.password,10);
+            this.cpassword = await bcrypt.hash(this.cpassword,10);
+        }
+        console.log(`the password is :${this.password}`)
+        next();
+    })
+
+
+    const User = mongoose.model("User",userSchema);
+
+    module.exports = User;
+
+    in auth.js file created a condition for password and cpassword not equals
+
+    ## auth.js ##
+    User.findOne({email:email})
+            .then((userExist)=>{
+                if(userExist){
+                    return res.status(422).json({Error:"Email already exist"})
+                } else if(password !== cpassword){
+                    return res.status(422).json({Error:'Password and Confirm Password should be same'});
+                }else{
+                    const user = new User({name,email,phone,work,password,cpassword});
+
+                // bcrypt
+
+                user.save().then(()=>{
+                    res.status(201).json({message:"user Register Successfully"});
+                    console.log(`${user} Register Successfully`)
+                    console.log(email,name,password)
+                }).catch((err)=>{
+                    res.status(500).json({error:"Failed to Register"})
+                })
+                }
+
+                
+            }).catch((err)=>{
+                console.log(`Faizan a Error has  Occured ${err}:`);
+            })
+*/
+########################### 14th Video : ###########################
