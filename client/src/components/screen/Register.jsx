@@ -25,7 +25,7 @@ function Register() {
         e.preventDefault();
         const {name,email,phone,work,password,cpassword} = user;
         console.log("posting check user");
-        const res = await  fetch("/register",{
+        const res = await  fetch("http://127.0.0.1:5000/register",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -35,18 +35,18 @@ function Register() {
             })
         });
         console.log("res upper done")
-        const data = await res.json();      //this is not running dono why!
+        const data = await res.json();     
         console.log("res lower done") 
 
         if(res.status === 422 || !data){
-            window.alert("Invalid Registration");
+            window.alert("Already Register Please Login");
             console.log("Invalid Registration")
         }
         else{
             window.alert("Registration Successful");
             console.log("Registration Successful");
-            history1.push("/");
-            // history1("./register",{replace:true});
+            // history1.push("http:localhost:5173/");
+            history1("./register",{replace:true});
         }
     }
 
