@@ -1,10 +1,11 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cors = require('cors')
 const express = require("express")
 const app = express();
 
 dotenv.config({path:'./config.env'});
-const PORT = process.env.PORT || 5400;
+const PORT = process.env.PORT;
  
 
 
@@ -14,6 +15,7 @@ require('./db/conn.js')
 // const User = require('./model/userSchema');
 
 app.use(express.json());
+app.use(cors());
 
 // we link the router file to make the routes easy
 app.use(require('./router/auth'));
