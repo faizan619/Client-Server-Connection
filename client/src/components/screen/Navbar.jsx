@@ -12,7 +12,8 @@ function Navbar() {
         </ul>
         <div className="btngroup">
           <NavLink to='/login'><button className="btn1 btn">Login</button></NavLink>
-          <NavLink to='/register'><button className="btn2 btn">Register</button></NavLink>
+          <NavLink to='/register'><button className="btn1 btn">Register</button></NavLink>
+          <NavLink to='/logout'><button className="btn1 btn">Logout</button></NavLink>
         </div>
       </div>
     </nav>

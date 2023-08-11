@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const authenticate = require("../middleware/authenticate");
 
 require('../db/conn')
 const User = require('../model/userSchema')
@@ -157,6 +158,7 @@ router.post('/signin',async(req,res)=>{
         res.status(400).json({error:"invalid credential"})
     }
 })
+ 
 
 
 // {
@@ -178,6 +180,24 @@ router.post('/signin',async(req,res)=>{
 //     "cpassword":654321
 //   }
 
+
+
+router.get('/about',authenticate,(req,res)=>{
+    res.send(req.rootUser);
+    console.log(`user is at page ${req.url}`)
+})
+
+router.get('/getdata',authenticate,(req,res)=>{
+    res.send(req.rootUser);
+    console.log("Welcome to somewhere")
+})
+
+
+router.get('/logout',(req,res)=>{
+    res.status(200).send("user logout");
+    res.clearCookie('jwtoken',{path:'/'});
+    console.log(`user is at page ${req.url}`)
+})
 
 module.exports = router;
 

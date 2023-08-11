@@ -1,5 +1,31 @@
+import { useEffect, useState } from "react"
 
 function Conract() {
+
+  const [userData,setUserData] = useState({});
+
+  const userContact=async()=>{
+    try{
+      const res = await fetch('http://127.0.0.1:5173/contact',{
+        method: 'GET',
+        headers:{'Content-Type':'application/json'},
+      });
+      const data = await res.json();
+      setUserData(data);
+
+      if (!res.status === 200){
+        const error = new Error(res.error);
+        throw error;
+      }
+
+    }catch(err){
+      console.log("error", err)
+    }
+  }
+
+  useEffect(()=>{
+    userContact();
+  },[])
   
   return (
     <>

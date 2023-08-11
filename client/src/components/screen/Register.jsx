@@ -46,7 +46,7 @@ function Register() {
             window.alert("Registration Successful");
             console.log("Registration Successful");
             // history1.push("http:localhost:5173/");
-            history1("./register",{replace:true});
+            history1("/login",{replace:true});
         }
     }
 

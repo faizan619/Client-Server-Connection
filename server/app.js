@@ -20,20 +20,17 @@ app.use(cors());
 // we link the router file to make the routes easy
 app.use(require('./router/auth'));
 
-const middleware = (req,res,next)=>{
-    console.log("Hello this is my middleware");
-    next();
-}
+
  
 app.get('/',(req,res)=>{
     res.send('Hello World! to Home Page')
     console.log(`user is at page ${req.url}`)
 })
-app.get('/about',middleware,(req,res)=>{
-    res.send('Hello World! to About Page');
-    console.log(`user is at page ${req.url}`)
-    // next();
-})
+// app.get('/about',(req,res)=>{
+//     res.send('Hello World! to About Page');
+//     console.log(`user is at page ${req.url}`)
+//     // next();
+// })
 app.get('/contact',(req,res)=>{
     res.cookie("Test","faizan");
     res.send('Hello World! to Contact Page')
